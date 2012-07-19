@@ -52,3 +52,7 @@ MTG cards from http://magiccards.info.
     >>> m13.getCard('Staff of Nin')
     {'toughness': None, 'power': None, 'artist': u'Dan Scott', 'rarity': u'Rare',
     'cost': u'6', 'type': u'Artifact', 'id': 217, 'name': u'Staff of Nin'}
+    
+    >>> m13.getCard('Arbor Elf')
+    {'toughness': u'1', 'power': u'1', 'artist': u'rk post', 'rarity': u'Common',
+    'cost': u'G', 'type': u'Creature - Elf Druid', 'id': 160, 'name': u'Arbor Elf'}
