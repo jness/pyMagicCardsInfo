@@ -1,0 +1,54 @@
+== Description
+
+The Python Magiccardsinfo library is a set of classes for scarping
+MTG cards from http://magiccards.info.
+
+== Getting set names
+
+    >>> from magiccardsinfo.Set import Set
+    >>> s = Set()
+    
+    >>> len(s.getSets())
+    146
+    
+    >>> s.getSets().keys()
+    ['gp', 'zen', 'roe', 'ala', 'wotc', 'itp', 'lg', 'le', 'fve', 'fvd', 'tr',
+    'ts', 'tp', 'lw', 'pch', '5e', 'fvr', 'dm', 'dk', 'di', '9e', 'ds', 'pc2',
+    'cmd', 'eve', 'evg', 'dpa', 'shm', 'p3k', 'be', '10e', 'me4', 'arb', 'arc',
+    'ex', 'me3', 'me2', 'pot', 'tsts', 'wwk', 'rv', 'gvl', 'mt', 'mbp', 'rep',
+    'pd3', 'pd2', '15ann', 'st2k', 'mprp', 'ddi', 'ddh', 'sus', 'ddg', 'ddf',
+    'bd', 'med', '9eb', 'mgbc', 'ju', 'wl', 'jr', '8e', 'fvl', 'br', 'arena', 'on',
+    'od', 'pds', 'ptc', 'bok', 'dka', 'drc', 'wrl', 'isd', 'ch', 'dcilm', 'sok',
+    'som', 'm11', 'm10', 'm13', 'm12', 'cs', 'cp', '5dn', 'mbs', 'pr', 'ps',
+    'chk', 'apac', 'pc', 'gpx', 'po', '6e', 'po2', 'jvc', 'hl', 'fnmp', 'aq',
+    'fut', 'mm', 'mi', 'pvc', 'us', 'ul', 'mlp', 'un', 'uh', 'mr', 'ud', 'ug',
+    'cedi', '7e', 'cfx', 'ai', 'vi', 'pro', 'al', 'avr', 'an', 'rav', 'ap',
+    'ced', 'at', 'in', 'ia', 'hho', 'guru', 'uhaa', 'uqc', 'mgdc', 'ne', 'grc',
+    'nph', '8eb', 'cstd', 'fe', 'thgt', 'euro', 'dvd', 'st', 'sh', 'sc', '4e', 'sum']
+    
+    >>> s.getSets()['m13']
+    'Magic 2013'
+
+== Working with sets
+
+    >>> from magiccardsinfo.Card import Card
+    >>> c = Card(set='m13')
+    
+    >>> m13 = Card(set='m13')
+    >>> len(m13.getCards())
+    249
+    
+    >>> m13.searchCards('Forest')
+    [{'toughness': None, 'power': None, 'artist': u'Volkan Baga', 'rarity': u'Land',
+    'cost': None, 'type': u'Basic Land - Forest', 'id': 246, 'name': u'Forest'},
+    {'toughness': None, 'power': None, 'artist': u'Steven Belledin', 'rarity':
+    u'Land', 'cost': None, 'type': u'Basic Land - Forest', 'id': 247, 'name':
+    u'Forest'}, {'toughness': None, 'power': None, 'artist': u'Noah Bradley',
+    'rarity': u'Land', 'cost': None, 'type': u'Basic Land - Forest', 'id': 248,
+    'name': u'Forest'}, {'toughness': None, 'power': None, 'artist': u'Jim Nelson',
+    'rarity': u'Land', 'cost': None, 'type': u'Basic Land - Forest', 'id': 249,
+    'name': u'Forest'}]
+    
+    >>> m13.getCard('Staff of Nin')
+    {'toughness': None, 'power': None, 'artist': u'Dan Scott', 'rarity': u'Rare',
+    'cost': u'6', 'type': u'Artifact', 'id': 217, 'name': u'Staff of Nin'}
