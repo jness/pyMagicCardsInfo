@@ -56,3 +56,19 @@ MTG cards from http://magiccards.info.
     >>> m13.getCard('Arbor Elf')
     {'toughness': u'1', 'power': u'1', 'artist': u'rk post', 'rarity': u'Common',
     'cost': u'G', 'type': u'Creature - Elf Druid', 'id': 160, 'name': u'Arbor Elf'}
+    
+== Exceptions for Card.getCard()
+
+    >>> m13.getCard('Forest')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "magiccardsinfo/Card.py", line 74, in getCard
+        raise Exception('More than 1 match found for %s' % name)
+    Exception: More than 1 match found for Forest
+    
+    >>> m13.getCard('Non existing card')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "magiccardsinfo/Card.py", line 72, in getCard
+        raise Exception('%s not found in set' % name)
+    Exception: Non existing card not found in set
