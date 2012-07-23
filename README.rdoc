@@ -56,6 +56,15 @@ MTG cards from http://magiccards.info.
     >>> m13.getCard('Arbor Elf')
     {'toughness': u'1', 'power': u'1', 'artist': u'rk post', 'rarity': u'Common',
     'cost': u'G', 'type': u'Creature - Elf Druid', 'id': 160, 'name': u'Arbor Elf'}
+
+== Getting prices for a card from TCGplayer
+
+    >>> from magiccardsinfo.Price import Price
+
+    >>> card_price = Price(id=160, set='m13')
+
+    >>> card_price.getPrices()
+    {'high': u'$0.26', 'card_name': u'Arbor Elf', 'avg': u'$0.13', 'low': u'$0.03'}
     
 == Exceptions for Card.getCard()
 
