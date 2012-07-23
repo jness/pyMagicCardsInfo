@@ -27,7 +27,7 @@ class Card:
             card_tds = card.findAll('td')
            
             # extract the data from the td structure
-            id = int(card_tds[0].text)
+            id = card_tds[0].text
             card_name = card_tds[1].text
             cost = card_tds[3].text
             rarity = card_tds[4].text
