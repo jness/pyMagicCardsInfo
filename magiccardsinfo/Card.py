@@ -51,7 +51,7 @@ class Card:
                 cost = None
                 
             # construct a dict
-            self.cards[id] = dict(id=id, name=card_name, cost=cost,
+            self.cards[id] = dict(card_id=id, card_name=card_name, cost=cost,
                                   rarity=rarity, artist=artist, type=type,
                                   power=power, toughness=toughness)
             
