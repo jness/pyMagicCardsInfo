@@ -3,28 +3,16 @@ from urllib2 import urlopen
 from re import search
 
 class Price:
-    'Takes a Magiccardsinfo set, id and returns the Low, Avg and High Prices'
+    'Takes a TCGPlayer ID and gets the low, avg, and high prices'
     
-    def __init__(self, id=None, set=None):
-        self.url = 'http://magiccards.info/%s/en/%s.html' % (set, id)
+    def __init__(self, id=None):
+        self.url = 'http://store.tcgplayer.com/Product.aspx?id=%s' % id
         self.__request()
-        self.__request_tcg()
         self.__prices()
         
     def __request(self):
-        'Make a request to the Magiccard Info page'
-        card = urlopen(self.url).read()
-        m = search('MAGCINFO&amp;sid=([\d]*)', card)
-        if m:
-            self.tcgplayer_id = m.group(1)
-        else:
-            raise Exception('unable to find tcgplayer id in %s' % self.url)
-            
-    def __request_tcg(self):
         'Make a request to the TCGPlayer page'
-        self.tcgurl = 'http://store.tcgplayer.com/Product.aspx?id=%s' % \
-                       self.tcgplayer_id
-        self.card = urlopen(self.tcgurl).read()
+        self.card = urlopen(self.url).read()
         
     def __prices(self):
         'Pull the prices from the td structure'

@@ -57,23 +57,24 @@ MTG cards from http://magiccards.info.
     {'toughness': u'1', 'power': u'1', 'artist': u'rk post', 'rarity': u'Common',
     'cost': u'G', 'type': u'Creature - Elf Druid', 'id': 160, 'name': u'Arbor Elf'}
 
+== Getting card external identifiers
+
+    >>> from magiccardsinfo.Identifiers import Identifiers
+    >>> i = Identifiers(set='m13', id='1')
+
+    >>> i.getGathererId()
+    '249695'
+
+    >>> i.getTCGPlayerId()
+    '59813'
+
 == Getting prices for a card from TCGplayer
 
     >>> from magiccardsinfo.Price import Price
+    >>> p = Price(id=59813)
 
-    >>> card_price = Price(id=160, set='m13')
-
-    >>> card_price.getPrices()
-    {'high': u'$0.26', 'card_name': u'Arbor Elf', 'avg': u'$0.13', 'low': u'$0.03'}
-
-== Getting Gatherer Multiverse ID for a card
-
-    >>> from magiccardsinfo.Gatherer import Gatherer
-
-    >>> g = Gatherer(set='m13', id=1)
-
-    >>> g.getGathererId()
-    '249695'
+    >>> p.getPrices()
+    {'high': u'$39.99', 'card_name': u'Ajani, Caller of the Pride', 'avg': u'$28.20', 'low': u'$23.99'}
         
 == Exceptions for Card.getCard()
 
