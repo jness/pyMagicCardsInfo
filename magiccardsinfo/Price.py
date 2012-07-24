@@ -19,9 +19,9 @@ class Price:
         soup = BeautifulSoup(self.card)
         prices = soup.findAll('td', {'class': ['low', 'avg', 'high']})
         if len(prices) == 3:
-            self.low = prices[0].text
-            self.avg = prices[1].text
-            self.high = prices[2].text
+            self.low = prices[0].text.lstrip('$')
+            self.avg = prices[1].text.lstrip('$')
+            self.high = prices[2].text.lstrip('$')
         else:
             raise Exception('3 prices not found on page %s' % self.url)
             
