@@ -65,7 +65,16 @@ MTG cards from http://magiccards.info.
 
     >>> card_price.getPrices()
     {'high': u'$0.26', 'card_name': u'Arbor Elf', 'avg': u'$0.13', 'low': u'$0.03'}
-    
+
+== Getting Gatherer Multiverse ID for a card
+
+    >>> from magiccardsinfo.Gatherer import Gatherer
+
+    >>> g = Gatherer(set='m13', id=1)
+
+    >>> g.getGathererId()
+    '249695'
+        
 == Exceptions for Card.getCard()
 
     >>> m13.getCard('Forest')
