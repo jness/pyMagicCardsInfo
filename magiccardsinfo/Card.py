@@ -58,7 +58,7 @@ class Card:
     def __searchNames(self, name=None):
         'Return all ids matching a name'
         name = name.lower()
-        ids = [ i for i in self.cards if name in self.cards[i]['name'].lower() ]
+        ids = [ i for i in self.cards if name in self.cards[i]['card_name'].lower() ]
         return ids
     
     def getCards(self):
