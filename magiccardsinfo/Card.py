@@ -60,6 +60,12 @@ class Card:
         name = name.lower()
         ids = [ i for i in self.cards if name in self.cards[i]['card_name'].lower() ]
         return ids
+
+    def __search(self, name=None):
+        'Return a single ids for matching name'
+        name = name.lower()
+        id = [ i for i in self.cards if name == self.cards[i]['card_name'].lower() ]
+        return id
     
     def getCards(self):
         'Return a dict of card in the set'
@@ -67,13 +73,13 @@ class Card:
     
     def getCard(self, name=None):
         'Return a dict of a specific card'
-        ids = self.__searchNames(name=name)
-        if len(ids) == 0:
+        id = self.__search(name=name)
+        if len(id) == 0:
             raise Exception('%s not found in set' % name)
-        if len(ids) > 1:
+        if len(id) > 1:
             raise Exception('More than 1 match found for %s' % name)
         else:
-            return self.cards[ids[0]]
+            return self.cards[id[0]]
     
     def searchCards(self, name=None):
         'Return a list of dicts per search name'
