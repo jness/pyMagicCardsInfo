@@ -73,6 +73,8 @@ class Card:
     
     def getCard(self, name=None):
         'Return a dict of a specific card'
+        name = name.replace('AEther', u'\xc6ther')
+        name = name.replace('Aether', u'\xc6ther')
         id = self.__search(name=name)
         if len(id) == 0:
             raise Exception('%s not found in set' % name)
@@ -84,6 +86,8 @@ class Card:
     def searchCards(self, name=None):
         'Return a list of dicts per search name'
         cards = []
+        name = name.replace('AEther', u'\xc6ther')
+        name = name.replace('Aether', u'\xc6ther')
         ids = self.__searchNames(name=name)
         for id in ids:
             cards.append(self.cards[id])
