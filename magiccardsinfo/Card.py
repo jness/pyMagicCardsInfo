@@ -59,13 +59,19 @@ class Card:
     def __searchNames(self, name=None):
         'Return all ids matching a name'
         name = name.lower()
-        ids = [ i for i in self.cards if name in unidecode.unidecode(self.cards[i]['card_name']).lower() ]
+        ids = [ i for i in self.cards if name in self.cards[i]['card_name'].lower() ]
+        if not ids:
+            # try in ASCII
+            ids = [ i for i in self.cards if name in unidecode.unidecode(self.cards[i]['card_name']).lower() ]
         return ids
 
     def __search(self, name=None):
         'Return a single ids for matching name'
         name = name.lower()
-        id = [ i for i in self.cards if name == unidecode.unidecode(self.cards[i]['card_name']).lower() ]
+        id = [ i for i in self.cards if name == self.cards[i]['card_name'].lower() ]
+        if not id:
+            # try in ASCII
+            id = [ i for i in self.cards if name == unidecode.unidecode(self.cards[i]['card_name']).lower() ]
         return id
     
     def getCards(self):
