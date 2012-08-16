@@ -79,9 +79,16 @@ class Card:
         if len(id) == 0:
             raise Exception('%s not found in set' % name)
         if len(id) > 1:
-            raise Exception('More than 1 match found for %s' % name)
-        else:
-            return self.cards[id[0]]
+            # sets with duplicate cards will also fail here
+            names = []
+            for i in id:
+                names.append(self.cards[i]['card_name'])
+            # if names match just return first object
+            if len(set(names)) != 1:
+                raise Exception('More than 1 match found for %s' % name)
+        
+        # no exceptions means we return
+        return self.cards[id[0]]
     
     def searchCards(self, name=None):
         'Return a list of dicts per search name'
