@@ -16,6 +16,6 @@ setup(name='magiccardsinfo',
       packages=find_packages(exclude=['ez_setup', 'tests']),
       include_package_data=True,
       zip_safe=False,
-      install_requires=['BeautifulSoup'],
+      install_requires=['BeautifulSoup', 'unidecode'],
       test_suite='nose.collector',
       )
